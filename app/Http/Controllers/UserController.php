@@ -16,6 +16,7 @@ class UserController extends Controller
     }
 
     public function show(User $user){
-        return $user;
+        $links =  $user->links()->latest()->get();
+        return view('links.share',['user' => $user, 'links' => $links]);
     }
 }
