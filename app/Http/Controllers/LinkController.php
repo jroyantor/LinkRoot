@@ -14,8 +14,6 @@ class LinkController extends Controller
                 ->withCount('visits')
                 ->with('last_visit') 
                 ->get();
-
-        return $links;
         return view('links.index',['links'=> $links]);
     }
 

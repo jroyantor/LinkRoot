@@ -9,7 +9,8 @@
                 @foreach($user->links as $link)
                 <a
                 href="{{ $link->link}}"
-                class = "d-block p-4 mb-4 rounded h3 text-center"
+                data-link-id = "{{ $link->id }}"
+                class = "d-block p-4 mb-4 rounded h3 text-center link-target"
                 target="_blank"
                 style="border: 2px solid {{ $user->text_color }}; color: {{ $user->text_color}};"
                 >
