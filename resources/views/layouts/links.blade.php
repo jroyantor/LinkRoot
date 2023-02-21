@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app" style="background-color: {{ $user->background_color }};">
+<body style="background-color: {{ $user->background_color }};">
+    <div id="app">
 
         <main class="py-4">
             @yield('content')

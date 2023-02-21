@@ -14,6 +14,14 @@ class UserController extends Controller
 
     public function update(Request $request){
 
+        $request->validate([
+            'background_color' => 'required|size:7|starts_with:#',
+            'text_color' => 'required|size:7|starts_with:#'
+        ]);
+
+        Auth::user()->update($request->only(['background_color','text_color']));
+
+        return redirect()->back()->with('success', 'User settings updated!');
     }
 
     public function show(User $user){

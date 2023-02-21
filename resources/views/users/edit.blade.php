@@ -14,7 +14,7 @@
                                 <input type="text" name="background_color" value="{{$user->background_color}}"
                                 placeholder="Your Page's Background Color in hex e.g. #000000"
                                 class="form-control {{ $errors->first('background_color') ? ' is-invalid' : '' }}">
-                                @error('name')
+                                @error('background_color')
                                     <span class="text-danger">{{$errors->first('background_color')}}
                                     </span>
                                 @enderror
@@ -27,7 +27,7 @@
                                 <label for="text_color">Text Color</label>
                                 <input type="text" name="text_color" value="{{$user->text_color}}" placeholder="Text Color in hex"
                                 class="form-control {{ $errors->first('text_color') ? ' is-invalid' : '' }}">
-                                @error('link')
+                                @error('text_color')
                                 <span class="text-danger">{{$errors->first('text_color')}}
                                 </span>
                                 @enderror
@@ -41,6 +41,10 @@
                             </div>
                         </div>
                     </form>
+
+                    @if(Session::get('success'))
+                     <h4 class="text text-success p-2">{{ Session::get('success') }}</h4>
+                    @endif
             </div>
         </div>
     </div>

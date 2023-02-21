@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 Auth::routes();
 //route for user visit count
 
@@ -42,8 +45,3 @@ Route::group(['middleware'=>'auth','prefix'=>'dashboard'], function(){
     Route::get('/settings',[UserController::class,'edit']);
     Route::post('/settings',[UserController::class,'update']);
 });
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
