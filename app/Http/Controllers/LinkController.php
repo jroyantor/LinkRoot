@@ -10,7 +10,12 @@ use Session;
 class LinkController extends Controller
 {
     public function index(){
-        $links = Auth::user()->links()->get();
+        $links = Auth::user()->links()
+                ->withCount('visits')
+                ->with('last_visit') 
+                ->get();
+
+        return $links;
         return view('links.index',['links'=> $links]);
     }
 

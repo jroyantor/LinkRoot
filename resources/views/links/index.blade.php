@@ -29,8 +29,8 @@
                             <tr>
                                 <th>{{ $link->name }}</th>
                                 <th><a href="{{$link->link}}" target="_blank">{{ $link->link }}</a></th>
-                                <th>0</th>
-                                <th>Today</th>
+                                <th>{{$link->visits_count}}</th>
+                                <th>{{ $link->last_visit ? $link->last_visit->created_at->format('Y-m-d h:i:s') : 'No Data'}}</th>
                                 <th><a href="/dashboard/links/{{$link->id}}">Edit</a></th>
                             </tr>
                             @endforeach
