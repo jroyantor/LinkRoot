@@ -17,7 +17,7 @@ use App\http\Controllers\VisitController;
 
 Route::get('/', function () {
     return view('pages.welcome');
-});
+})->middleware('guest');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
