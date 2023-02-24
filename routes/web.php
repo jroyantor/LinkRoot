@@ -41,7 +41,9 @@ Route::group(['middleware'=>'auth','prefix'=>'dashboard'], function(){
     Route::get('/links/{link}',[LinkController::class,'edit']);
     Route::post('/links/{link}',[LinkController::class,'update']);
     Route::delete('/links/{link}',[LinkController::class,'destroy']);
+    Route::get('/insights',[LinkController::class,'insights']);
     
     Route::get('/settings',[UserController::class,'edit']);
     Route::post('/settings',[UserController::class,'update']);
+    Route::get('/insights',[LinkController::class,'insights']);
 });

@@ -38,7 +38,7 @@
                     </table>
 
                     <a href="{{url('dashboard/links/new')}}" class="btn btn-primary">Add New</a>
-                    <a href="{{url(Auth::user()->name)}}" class="btn btn-dark">View as a Visitor!</a>
+                    <a href="{{url(Auth::user()->name)}}" class="btn btn-success" target="_blank">View as a Visitor!</a>
                 </div>
             </div>
         </div>

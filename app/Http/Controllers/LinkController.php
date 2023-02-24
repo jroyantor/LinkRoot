@@ -72,4 +72,8 @@ class LinkController extends Controller
         return redirect('/dashboard/links');
     }
 
+    public function insights(){
+        return view('links.insights');
+    }
+
 }
