@@ -53,10 +53,14 @@
     new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Firefox', 'Chrome', 'Safari', 'Opera', 'Brave', 'IE','Edge'],
+        labels: ['Firefox', 'Chrome', 'Safari', 'Brave', 'Opera', 'Edge','Others'],
         datasets: [{
         label: 'No. of Visits',
-        data: [12, 19, 3, 5, 2, 3,0],
+        data: {{ Js::from($browsers) }},
+        backgroundColor:[
+            'rgba(230, 149, 71, 0.8)',
+            'rgba(190, 178, 66, 0.8)'
+        ],
         borderWidth: 2
         }]
     },

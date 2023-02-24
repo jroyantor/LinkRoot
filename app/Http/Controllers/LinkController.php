@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Link;
+use App\Models\Visit;
 use Auth;
 use Session;
 
@@ -73,7 +74,35 @@ class LinkController extends Controller
     }
 
     public function insights(){
-        return view('links.insights');
+
+        $visits = Visit::select('user_agent')->get();
+        $countUserAgents = array([
+            'Firefox' => 0,
+            'Chrome'=> 0,
+            'Safari' => 0,
+            'Brave' => 0,
+            'Opera' => 0,
+            'Edge' => 0,
+            'Others'=>0 
+        ]);
+
+        
+
+        foreach($visits as $visit){
+            if(preg_match('/Firefox/i',$visit)) $countUserAgents[0]['Firefox'] += 1;
+            else if(preg_match('/Chrome/i',$visit)) $countUserAgents[0]['Chrome'] += 1;
+            else if(preg_match('/Safari/i',$visit)) $countUserAgents[0]['Safari'] += 1;
+            else if(preg_match('/Brave/i',$visit)) $countUserAgents[0]['Brave'] += 1;
+            else if(preg_match('/Opera/i',$visit)) $countUserAgents[0]['Opera'] += 1;
+            else if(preg_match('/Edge/i',$visit)) $countUserAgents[0]['Edge'] += 1;
+            
+            else { 
+                $countUserAgents[0]['Others'] += 1;
+            }
+            
+        }
+
+        return view('links.insights',['browsers' => $countUserAgents[0]]);
     }
 
 }
